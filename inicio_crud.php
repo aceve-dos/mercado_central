@@ -13,6 +13,10 @@ $config = include 'config.php';
 
 try {
     $dsn = 'mysql:host=' . $config ['db']['host'] . ';dbname=' . $config['db']['name']; $conexion = new PDO($dsn, $config['db']['user'], $config['db']['pass'], $config['db']['options']);
+    
+    if (isset($_POST['nombre_cliente'])) {
+        $consultaSQL = "SELECT * from pedido "
+    }
 } 
 //aca va un IF que determina el nivel de usuario si es admin o no, para luego dar consulta a la base de datos desde la tabla de productos y mostrar dichos productos. 
 
