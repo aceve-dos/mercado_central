@@ -79,8 +79,8 @@ if (isset($resultado)) {
                     <label for="sub_producto">Sub Producto</label>
                     <select name="subprod" id="subprod" class="form-control" required  >Sub Productos
                     <option value="0">Seleccione</option>
-                    <option value="1">Bananas</option>
-                    <option value="2">Manzanas</option>
+                    <option value="Bananas">Bananas</option>
+                    <option value="Manzanas">Manzanas</option>
                     </select>
                 </div>
                 <div class="form-group">

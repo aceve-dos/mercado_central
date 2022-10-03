@@ -4,16 +4,17 @@ session_start();
 include 'funciones.php';
 
 csrf();
-if (isset($_POST['submit']) &&!hash_equals($_SESSION['csrf']$_POST['csrf'])){
+if (isset($_POST['submit']) && !hash_equals($_SESSION['csrf'],$_POST['csrf'])) {
     die();
 }
 
 $error = false;
 $config = include 'config.php';
 
-try{
+try {
     $dsn = 'mysql:host=' . $config ['db']['host'] . ';dbname=' . $config['db']['name']; $conexion = new PDO($dsn, $config['db']['user'], $config['db']['pass'], $config['db']['options']);
-} //aca va un IF que determina el nivel de usuario si es admin o no, para luego dar consulta a la base de datos desde la tabla de productos y mostrar dichos productos. 
+} 
+//aca va un IF que determina el nivel de usuario si es admin o no, para luego dar consulta a la base de datos desde la tabla de productos y mostrar dichos productos. 
 
 ?>
 
