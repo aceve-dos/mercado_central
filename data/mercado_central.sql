@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-09-2022 a las 22:01:32
+-- Tiempo de generación: 09-10-2022 a las 00:06:55
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -58,18 +58,16 @@ CREATE TABLE `productos` (
   `tipo` varchar(10) DEFAULT NULL,
   `peso` decimal(65,0) DEFAULT NULL,
   `precio_max` float DEFAULT NULL,
-  `precio_min` float DEFAULT NULL
+  `precio_min` float DEFAULT NULL,
+  `nombre_puestero` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `producto_nombre`, `sub_producto`, `cantidad`, `tipo`, `peso`, `precio_max`, `precio_min`) VALUES
-(14, 'Zanahorias', '2', 90, 'Cajones', '65', 100, 1),
-(15, 'Zanahorias', '2', 90, 'Cajones', '65', 100, 1),
-(16, 'Zanahorias', '2', 90, 'Cajones', '65', 100, 1),
-(17, 'Zanahorias', '2', 90, 'Cajones', '65', 100, 1);
+INSERT INTO `productos` (`id_producto`, `producto_nombre`, `sub_producto`, `cantidad`, `tipo`, `peso`, `precio_max`, `precio_min`, `nombre_puestero`) VALUES
+(21, 'Kiki', 'Manzanas', 98, 'perro', '56', 789, 1, 'Sasa');
 
 -- --------------------------------------------------------
 
@@ -121,7 +119,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellido`, `email`, `contraseña`, `nivel`) VALUES
 (1, NULL, NULL, '144', '144', NULL),
-(2, NULL, NULL, 'asa', 'asaa', NULL);
+(2, NULL, NULL, 'asa', 'asaa', NULL),
+(3, NULL, NULL, 'sasa', 'sasa', 1);
 
 --
 -- Índices para tablas volcadas
@@ -173,7 +172,7 @@ ALTER TABLE `historial_producto`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_producto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `puestero`
@@ -191,7 +190,7 @@ ALTER TABLE `registro`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas

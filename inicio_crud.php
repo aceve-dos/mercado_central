@@ -38,8 +38,8 @@ try {
 ?>
 <?php include "templates/header.php"; ?>
 
-//BOTON DE BUSCAR PRODUCTO.--->
-//<!---CRUD--->
+<!---BOTON DE BUSCAR PRODUCTO.--->
+<!---CRUD--->
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -73,8 +73,8 @@ try {
                                 <td><?php echo escapar ($fila['precio_max']); ?></td>
                                 <td><?php echo escapar ($fila['precio_min']); ?></td>
                                 <td>
-                                    <a href="<?= 'borrar.php?id=' . escapar ($fila['id_producto']) ?>"> borrar</a>
-                                    <a href="<?= 'editar.php?id=' . escapar($fila['id_producto']) ?>">editar</a>
+                                    <a href="<?= 'borrar.php?id=' . escapar ($fila['id_producto']) ?>"> Borrar</a>
+                                    <a href="<?= 'editar.php?id=' . escapar($fila['id_producto']) ?>">Editar</a>
                                 </td>
                             </tr>
                             <?php
