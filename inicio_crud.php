@@ -63,6 +63,7 @@ try {
                         foreach ($productos as $fila) {
                             ?>
                             <tr>
+                                <td><?php echo escapar ($fila['nombre_puestero']); ?></td>
                                 <td><?php echo escapar ($fila['id_producto']); ?></td>
                                 <td><?php echo escapar ($fila['producto_nombre']); ?></td>
                                 <td><?php echo escapar ($fila['sub_producto']); ?></td>
