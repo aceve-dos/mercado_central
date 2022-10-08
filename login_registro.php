@@ -32,7 +32,7 @@ if(isset($_POST["btningresar"])){
         //Si es usuario se manda a pedidos pero si es admin a la lista de usuario
 
         if($row["nivel"]==1){
-            echo "<script> alert ('Bienvenido $email'); window.location='inicio_crud.php</script>";
+            echo "<script> alert ('Bienvenido $email'); window.location='inicio_crud.php'</script>";
         }else{
             echo "<script> alert ('Bienvenido $email'); window.location='l_usuarios.php'</script>";
         }
