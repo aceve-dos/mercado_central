@@ -71,3 +71,4 @@ if ($error){
     </div>
    </div> 
 </div>
+<!---Modificación para niveles, corregir el div---->
