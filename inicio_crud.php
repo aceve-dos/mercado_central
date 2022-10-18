@@ -19,7 +19,7 @@ try {
         $consultaSQL = "SELECT * FROM productos WHERE nombre_puestero LIKE '%" . $_POST['nombre_puestero'] . "%'";
     } else {
         if ($_SESSION ['nivel']==1){
-            $consultaSQL = "SELECT * FROM productos WHERE id_usuario=" . $_SESSION["id_usuario"];
+            $consultaSQL = "SELECT * FROM productos WHERE nombre_puestero=" . $_SESSION["nombre_puestero"];
         }else{
             $consultaSQL = "SELECT * FROM productos";
         }
@@ -37,6 +37,49 @@ try {
 
 ?>
 <?php include "templates/header.php"; ?>
+
+<?php
+if ($error) {
+    ?>
+    <div class="container m-2">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-danger" role="alert">
+                    <?= $error ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+?>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" class="form-inline">
+                <div class="form-group mr-3">
+                    <input type="text" style="width:80%; float:left margin:right 5px"; id="nombre_puestero" name="nombre_puestero" placeholder="Buscar por nombre" class="form-control">
+                </div>
+                <input name="csrf" type="hidden" value="<?php echo escapar ($_SESSION['csrf']); ?>">
+                <button type="submit" name="submit" class="btn btn-primary">    
+                    Ver Productos
+                </button>
+            </form>
+            <hr>
+            <!---Boton de lista de usuarios o productos, voy viendo.--->
+            <?php
+                if($_SESSION['nivel']==2){
+                    echo'<a href="l_usuarios.php" class="btn btn-primary ,t-4"> Productos</a>';
+                }
+            ?>
+            <!---Agregar pedido--->
+            <a href="crear.php" class="btn btn-primary mt-4">Agregar pedido</a>
+            <!---Cerrar sesion--->
+            <a href="logout.php" class="btn btn-secundary mt-4">Cerrar sesion de <?php echo $_SESSION['id_usuario'] ?></a>
+        </div>
+    </div>
+</div>
 
 <!---BOTON DE BUSCAR PRODUCTO.--->
 <!---CRUD--->

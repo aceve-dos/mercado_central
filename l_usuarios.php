@@ -65,9 +65,9 @@ if ($error){
         </form>
         <hr>
         <!-- Pantalla de pedidos.-->
-        <a href="inicio_crud.php" class="btn btn-primary mt-4">Ir para los Pedidos/Productos</a>
+            <a href="inicio_crud.php" class="btn btn-primary mt-4">Ir para los Pedidos/Productos</a>
 
-        <a href="logout.php" class="btn btn-secundary mt-4">Cerrar sesion de <?php echo $_SESSION["id_usuario"] ?> </a>
+            <a href="logout.php" class="btn btn-secundary mt-4">Cerrar sesion de <?php echo $_SESSION["id_usuario"] ?> </a>
     </div>
    </div> 
 </div>
