@@ -15,12 +15,17 @@ try {
     $conexion = new PDO($dsn, $config['db']['user'], $config ['db']['pass'], $config['db']['options']);
 
 
-    $id = $_GET['id_producto'];
-    $consultaSQL = "DELETE FROM productos WHERE id_producto=" . $id;
+    $id = $_GET['id'];
+    $consultaSQL = "DELETE FROM productos WHERE id_producto= :id;";
 
+    //parametros de consulta
+    $sentencia = $conexion->prepare($consultaSQL);
 
-    $sentencia = $conexion ->prepare($consultaSQL);
+    $sentencia->bindParam(':id', $id, PDO::PARAM_INT);
+
     $sentencia->execute();
+
+
 
     header('Location:inicio_crud.php');
 

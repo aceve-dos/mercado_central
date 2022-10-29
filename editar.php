@@ -21,8 +21,6 @@ if (!isset($_GET['id'])) {
     $resultado['mensaje'] = 'La clave no existe';
 }
 
-
-//aca va las sentencias de edición
 ?>
 
 <?php require "templates/header.php"; ?>
@@ -45,17 +43,63 @@ if ($resultado['error']) {
 
 <?php
 if (isset($_POST['submit']) && !$resultado['error']){
+    $dsn = 'mysql:host=' . $config ['db']['host'] . ';dbname=' . $config ['db']['name'];
+    $conexion = new PDO($dsn, $config ['db']['user'], $config ['db']['pass'], $config ['db']['options']);
+
+    //Aca se capturan los valores
+    $nombre_puestero = $_POST['nombre_puestero'];
+    $producto_nombre= $_POST['producto_nombre'];
+    $sub_producto= $_POST['sub_producto'];
+    $cantidad= $_POST['cantidad'];
+    $tipo= $_POST['tipo'];
+    $peso= $_POST['peso'];
+    $precio_max= $_POST['precio_max'];
+    $precio_min = $_POST['precio_min'];
+    $id_producto=$_POST['id_producto'];
+
+    //UPDATE de consulta SQL
+    $consultaSQL = "UPDATE productos SET
+    nombre_puestero = :nombre_puestero,
+    producto_nombre= :producto_nombre,
+    sub_producto = :sub_producto,
+    cantidad = :cantidad,
+    tipo = :tipo,
+    peso = :peso,
+    precio_max = :precio_max,
+    precio_min = precio_min
+    WHERE id_producto = :id_producto";
+
+
+    $sentencia = $conexion->prepare($consultaSQL);
+
+
+    //Parametros
+
+    $sentencia->bindParam(':id_producto', $id_producto, PDO::PARAM_INT);
+    $sentencia->bindParam(':producto_nombre', $producto_nombre, PDO::PARAM_INT);
+    $sentencia->bindParam(':sub_producto', $sub_producto, PDO::PARAM_INT);
+    $sentencia->bindParam(':cantidad', $cantidad, PDO::PARAM_INT);
+    $sentencia->bindParam(':tipo', $tipo, PDO::PARAM_INT);
+    $sentencia->bindParam(':peso', $peso, PDO::PARAM_INT);
+    $sentencia->bindParam(':precio_max', $precio_max, PDO::PARAM_INT);
+    $sentencia->bindParam(':precio_min', $precio_min, PDO::PARAM_INT);
+    $sentencia->bindParam(':nombre_puestero', $nombre_puestero, PDO::PARAM_INT);
+
+    $sentencia->execute($producto);
+
     ?>
     <div class="container m2-2">
         <div class="col-md-12">
             <div class="alert alert-sucess" role="alert">
-                El producto ha sido actualizado.
+                    El producto se actualizó.
             </div>
         </div>
     </div>
     <?php
 }
 ?>
+
+
 
 <?php
 if (isset($productos) && $productos){
