@@ -15,7 +15,7 @@ try {
     $dsn ='mysql:host=' .  $config['db']['host'] . ';dbname=' . $config ['db']['name'];
     $conexion = new PDO($dsn, $config ['db']['user'], $config['db']['pass'], $config ['db']['options']);
 
-    if(isset($_POST['nombre_puestero'])){
+    /*if(isset($_POST['nombre_puestero'])){
         $consultaSQL = "SELECT * FROM productos WHERE nombre_puestero LIKE '%" . $_POST['nombre_puestero'] . "%'";
     } else {
         if ($_SESSION ['nivel']==1){
@@ -23,7 +23,9 @@ try {
         }else{
             $consultaSQL = "SELECT * FROM productos";
         }
-    }
+    }*/
+    $consultaSQL = "SELECT * FROM productos";
+
     $sentencia = $conexion->prepare($consultaSQL);
     $sentencia->execute();
 
@@ -69,9 +71,9 @@ if ($error) {
             <hr>
             <!---Boton de lista de usuarios o productos, voy viendo.--->
             <?php
-                if($_SESSION['nivel']==2){
+                /*if($_SESSION['nivel']==2){
                     echo'<a href="l_usuarios.php" class="btn btn-primary ,t-4"> Productos</a>';
-                }
+                }*/
             ?>
             <!---Agregar pedido--->
             <a href="crear.php" class="btn btn-primary mt-4">Agregar pedido</a>
