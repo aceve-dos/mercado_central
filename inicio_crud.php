@@ -95,6 +95,7 @@ if ($error) {
                         <th>Nombre Puestero</th>
                         <th>ID Producto</th>
                         <th>Nombre de Producto</th>
+                        <th>Sub Producto</th>
                         <th>Cantidad</th>
                         <th>Tipo</th>
                         <th>Peso</th>
