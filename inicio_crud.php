@@ -15,18 +15,15 @@ try {
     $dsn ='mysql:host=' .  $config['db']['host'] . ';dbname=' . $config ['db']['name'];
     $conexion = new PDO($dsn, $config ['db']['user'], $config['db']['pass'], $config ['db']['options']);
 
-    //if(isset($_POST['nombre_puestero'])){
-    //    $consultaSQL = "SELECT * FROM productos WHERE nombre_puestero LIKE '%" . $_POST['nombre_puestero'] . "%'";
-    //} else {
-    //    if ($_SESSION ['nivel']==1){
-    //        $consultaSQL = "SELECT * FROM productos WHERE nombre_puestero=" . $_SESSION["nombre_puestero"];
-    //    }else{
-    //        $consultaSQL = "SELECT * FROM productos";
-    //    }
-    //}
-
-    $consultaSQL = "SELECT * FROM productos";
-
+    if(isset($_POST['nombre_puestero'])){
+        $consultaSQL = "SELECT * FROM productos WHERE nombre_puestero LIKE '%" . $_POST['nombre_puestero'] . "%'";
+    } else {
+        if ($_SESSION ['nivel']==1){
+            $consultaSQL = "SELECT * FROM productos WHERE nombre_puestero=" . $_SESSION["nombre_puestero"];
+        }else{
+            $consultaSQL = "SELECT * FROM productos";
+        }
+    }
     $sentencia = $conexion->prepare($consultaSQL);
     $sentencia->execute();
 
@@ -71,16 +68,16 @@ if ($error) {
             </form>
             <hr>
             <!---Boton de lista de usuarios o productos, voy viendo.--->
+            
             <?php
-            //    if($_SESSION['nivel']==2){
-            //        echo'<a href="l_usuarios.php" class="btn btn-primary ,t-4"> Productos</a>';
-            //    }
+                if($_SESSION['nivel']==2){
+                    echo'<a href="l_usuarios.php" class="btn btn-primary ,t-4"> Productos</a>';
+                }
             ?>
-            <!-- BOTONES DE MENU -->
             <!---Agregar pedido--->
             <a href="crear.php" class="btn btn-primary mt-4">Agregar pedido</a>
             <!---Cerrar sesion--->
-            <a href="logout.php" class="btn btn-primary mt-4">Cerrar sesión de: <?php echo $_SESSION['nombre'] ?></a>
+            <a href="logout.php" class="btn btn-secundary mt-4">Cerrar sesion de <?php echo $_SESSION['id_usuario'] ?></a>
         </div>
     </div>
 </div>
@@ -97,7 +94,6 @@ if ($error) {
                         <th>Nombre Puestero</th>
                         <th>ID Producto</th>
                         <th>Nombre de Producto</th>
-                        <th>Sub producto</th>
                         <th>Cantidad</th>
                         <th>Tipo</th>
                         <th>Peso</th>
