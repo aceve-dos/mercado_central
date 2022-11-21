@@ -91,13 +91,15 @@ if (isset($_POST['submit']) && !$resultado['error']){
     <div class="container m2-2">
         <div class="col-md-12">
             <div class="alert alert-sucess" role="alert">
-                El producto ha sido actualizado.
+                    El producto se actualizó.
             </div>
         </div>
     </div>
     <?php
 }
 ?>
+
+
 
 <?php
 
@@ -132,30 +134,37 @@ if (isset($productos) && $productos){
                         <label for="nombre">Nombre de Producto</label>
                         <input type="text" name="producto_nombre" id="producto_nombre" value="<?= escapar($productos['producto_nombre']) ?>" class="form-control" required autofocus>
                     </div>
+
                     <div class="form-group">
                         <label for="nombre">Sub Producto</label>
                         <input type="text" name="sub_producto" id="sub_producto" value="<?= escapar($productos['sub_producto']) ?>" class="form-control" required autofocus>
                     </div>
+
                     <div class="form-group">
                         <label for="nombre">Cantidad</label>
                         <input type="text" name="cantidad" id="cantidad" value="<?= escapar($productos['cantidad']) ?>" class="form-control" required autofocus>
                     </div>
+
                     <div class="form-group">
                         <label for="nombre">Tipo</label>
                         <input type="text" name="tipo" id="tipo" value="<?= escapar($productos['tipo']) ?>" class="form-control" required autofocus>
                     </div>
+
                     <div class="form-group">
                         <label for="nombre">Peso</label>
                         <input type="text" name="peso" id="peso" value="<?= escapar($productos['peso']) ?>" class="form-control" required autofocus>
                     </div>
+
                     <div class="form-group">
                         <label for="nombre">Precio Maximo</label>
                         <input type="text" name="precio_max" id="precio_max" value="<?= escapar($productos['precio_max']) ?>" class="form-control" required autofocus>
                     </div>
+
                     <div class="form-group">
                         <label for="nombre">Precio Minimo</label>
                         <input type="text" name="precio_min" id="precio_min" value="<?= escapar($productos['precio_min']) ?>" class="form-control" required autofocus>
                     </div>
+
                     <div class="form-group">
                         <label for="nombre">Nombre Puestero</label>
                         <input type="text" name="nombre_puestero" id="nombre_puestero" value="<?= escapar($productos['nombre_puestero']) ?>" class="form-control" required autofocus>
