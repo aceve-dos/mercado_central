@@ -72,13 +72,13 @@ if (isset($resultado)) {
             <form method="post">
                 <div class="form-group">
                     <label for="nombre_puestero">Nombre de Puestero</label>
-                    <input type="text" name ="nombre_puestero" id="nombre_puestero" class="form-control" maxlength="255" required>
+                    <input type="text" name ="nombre_puestero" id="nombre_puestero" class="form-control" maxlength="255" required autofocus>
                 </div>
                 <div class="form-group">
                     <label for="nombre">Nombre producto</label>
                     <input type="text" name="nombre" id="nombre"
                     class="form-control"
-                    maxlength="255" required autofocus>
+                    maxlength="255" required>
                 </div>
                 <div class="form-group">
                     <label for="sub_producto">Sub Producto</label>
