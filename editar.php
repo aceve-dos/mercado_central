@@ -79,11 +79,11 @@ if (isset($_POST['submit']) && !$resultado['error']){
     $sentencia->bindParam(':producto_nombre', $producto_nombre, PDO::PARAM_STR);
     $sentencia->bindParam(':sub_producto', $sub_producto, PDO::PARAM_STR);
     $sentencia->bindParam(':cantidad', $cantidad, PDO::PARAM_INT);
-    $sentencia->bindParam(':tipo', $tipo, PDO::PARAM_INT);
+    $sentencia->bindParam(':tipo', $tipo, PDO::PARAM_STR);
     $sentencia->bindParam(':peso', $peso, PDO::PARAM_INT);
     $sentencia->bindParam(':precio_max', $precio_max, PDO::PARAM_STR);
     $sentencia->bindParam(':precio_min', $precio_min, PDO::PARAM_STR);
-    $sentencia->bindParam(':nombre_puestero', $nombre_puestero, PDO::PARAM_INT);
+    $sentencia->bindParam(':nombre_puestero', $nombre_puestero, PDO::PARAM_STR);
 
     $sentencia->execute();
 
