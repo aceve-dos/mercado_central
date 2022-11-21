@@ -25,6 +25,8 @@ try {
 
     $sentencia->execute();
 
+
+
     header('Location:inicio_crud.php');
 
 } catch(PDOException $error){

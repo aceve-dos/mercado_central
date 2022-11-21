@@ -71,6 +71,7 @@ if ($error) {
             </form>
             <hr>
             <!---Boton de lista de usuarios o productos, voy viendo.--->
+            
             <?php
             //    if($_SESSION['nivel']==2){
             //        echo'<a href="l_usuarios.php" class="btn btn-primary ,t-4"> Productos</a>';
