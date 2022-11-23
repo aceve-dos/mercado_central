@@ -122,18 +122,20 @@ if ($error) {
                                 <td><?php echo escapar ($fila['precio_max']); ?></td>
                                 <td><?php echo escapar ($fila['precio_min']); ?></td>
                                 <td>
-                                    <a href="<?= 'borrar.php?id=' . escapar ($fila['id_producto']) ?>"> Borrar</a>
-                                    <a href="<?= 'editar.php?id=' . escapar($fila['id_producto']) ?>">Editar</a>
+                                    <?php if($_SESSION['nivel']==2){?>
+                                        <a href="<?= 'borrar.php?id=' . escapar ($fila['id_producto']) ?>"> Borrar</a>
+                                        <a href="<?= 'editar.php?id=' . escapar($fila['id_producto']) ?>">Editar</a>        
                                 </td>
                             </tr>
                             <?php
-                        }
                     }
+                }
+            }
                     ?>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-<?php include "templates/footer.php"; ?>
 
+<?php include "templates/footer.php"; ?>

@@ -22,6 +22,7 @@ if(isset($_POST["btningresar"])){
         session_start();
         //Se guardan los datos de la sesion
         $_SESSION['id_usuario'] = $row['id_usuario'];
+        $_SESSION['nivel'] = $row['nivel'];
         $_SESSION['nombre'] = $row['email'];
 
         //Si es usuario se manda a pedidos pero si es admin a la lista de usuario

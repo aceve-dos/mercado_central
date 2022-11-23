@@ -60,14 +60,14 @@ if ($error){
                 id="nombre_puestero" name="nombre puestero" placeholder="Buscar por nombre" class="form-control">
             </div>
             <input name="csrf"   type="hidden" value="<?php echo escapar ($_SESSION ['csrf']); ?>">
-            <button type="submit" name="submit" class="btn btn primary"> Ver coso
+            <button type="submit" name="submit" class="btn btn primary"> 
             </button>
         </form>
         <hr>
         <!-- Pantalla de pedidos.-->
             <a href="inicio_crud.php" class="btn btn-primary mt-4">Ir para los Pedidos/Productos</a>
 
-            <a href="logout.php" class="btn btn-secundary mt-4">Cerrar sesion de <?php echo $_SESSION["id_usuario"] ?> </a>
+            <a href="logout.php" class="btn btn-primary mt-4">Cerrar sesion de <?php echo $_SESSION["nombre"] ?> </a>
     </div>
    </div> 
 </div>

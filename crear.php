@@ -119,7 +119,6 @@ if (isset($resultado)) {
                     <input name="csrf" type="hidden" value="<?php echo escapar($_SESSION['csrf']);?>">
 
                     <!--Se guarda el usuario ocultandolo--->
-                    <input name="id_usuario" type="hidden" value="<?php echo escapar($_SESSION['id_usuario']);?>">
                     <input type="submit" name="submit" class="btn btn-primary" value="Confirmar">
                     <a class="btn btn-info" href="inicio_crud.php">Regresar al comienzo</a>
                 </div>
