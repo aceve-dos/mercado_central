@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2022 a las 00:06:55
+-- Tiempo de generación: 25-11-2022 a las 21:55:23
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -118,9 +118,6 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellido`, `email`, `contraseña`, `nivel`) VALUES
-(1, NULL, NULL, '144', '144', NULL),
-(2, NULL, NULL, 'asa', 'asaa', NULL),
-(3, NULL, NULL, 'sasa', 'sasa', 1);
 (4, NULL, NULL, 'admin', 'admin', 2);
 
 --
@@ -191,7 +188,7 @@ ALTER TABLE `registro`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
