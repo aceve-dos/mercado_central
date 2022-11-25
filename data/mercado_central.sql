@@ -121,6 +121,7 @@ INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellido`, `email`, `contraseña
 (1, NULL, NULL, '144', '144', NULL),
 (2, NULL, NULL, 'asa', 'asaa', NULL),
 (3, NULL, NULL, 'sasa', 'sasa', 1);
+(4, NULL, NULL, 'admin', 'admin', 2);
 
 --
 -- Índices para tablas volcadas
