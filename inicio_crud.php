@@ -124,7 +124,7 @@ if ($error) {
                                 <td>
                                     <?php if($_SESSION['nivel']==2){?>
                                         <a href="<?= 'borrar.php?id=' . escapar ($fila['id_producto']) ?>"> Borrar</a>
-                                        <a href="<?= 'editar.php?id=' . escapar($fila['id_producto']) ?>">Editar</a>        
+                                        <a href="<?= 'editar.php?id=' . escapar($fila['id_producto']) ?>">Editar</a>      
                                 </td>
                             </tr>
                             <?php

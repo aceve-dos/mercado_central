@@ -66,7 +66,7 @@ if ($error){
         <hr>
         <!-- Pantalla de pedidos.-->
             <a href="inicio_crud.php" class="btn btn-primary mt-4">Ir para los Pedidos/Productos</a>
-
+            <a href="usuarios_registrados.php" class="btn btn-primary mt-4">Usuarios Registrados</a>
             <a href="logout.php" class="btn btn-primary mt-4">Cerrar sesion de <?php echo $_SESSION["nombre"] ?> </a>
     </div>
    </div> 
