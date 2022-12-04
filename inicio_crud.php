@@ -60,7 +60,7 @@ if ($error) {
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <form method="post" class="form-inline">
+            <!-- <form method="post" class="form-inline">
                 <div class="form-group mr-3">
                     <input type="text" style="width:80%; float:left margin:right 5px"; id="nombre_puestero" name="nombre_puestero" placeholder="Buscar por nombre" class="form-control">
                 </div>
@@ -68,7 +68,7 @@ if ($error) {
                 <button type="submit" name="submit" class="btn btn-primary">    
                     Ver Productos
                 </button>
-            </form>
+            </form> -->
             <hr>
             <!---Boton de lista de usuarios o productos, voy viendo.--->
             
@@ -80,8 +80,13 @@ if ($error) {
             <!-- BOTONES DE MENU -->
             <!---Agregar pedido--->
             <a href="crear.php" class="btn btn-primary mt-4">Agregar pedido</a>
-            <!---Cerrar sesion--->
             <a href="logout.php" class="btn btn-primary mt-4">Cerrar sesión de: <?php echo $_SESSION['nombre'] ?></a>
+            <?php if($_SESSION['nivel']==2){?>
+                <a href="usuarios_registrados.php" class="btn btn-primary mt-4">Volver a Usuarios Registrados</a>
+            <?php
+            }                        
+            ?>    <!---Cerrar sesion--->
+
         </div>
     </div>
 </div>
@@ -100,7 +105,7 @@ if ($error) {
                         <th>Nombre de Producto</th>
                         <th>Sub producto</th>
                         <th>Cantidad</th>
-                        <th>Tipo</th>
+                        <th>Tipo de Embalaje</th>
                         <th>Peso</th>
                         <th>Precio Maximo</th>
                         <th>Precio Minimo</th>

@@ -91,12 +91,13 @@ if ($error) {
             foreach ($productos as $fila) {
               ?>
               <tr>
-                <td><?php echo escapar($fila["nombre"]); ?></td>
+                <td><?php echo escapar ($fila["id_usuario"]);?></td>
                 <td><?php echo escapar($fila["email"]); ?></td>
-                <td>****</td>
+                <td><?php echo escapar($fila["contraseña"]); ?></td>
                 <td><?php echo escapar($fila["nivel"]); ?></td>
                 <td>
                 <!---Editar usuario link aca--->
+                <a href="editar_u.php?id_usuario=<?php echo escapar ($fila["id_usuario"]); ?>">Editar</a>
                 </td>
               </tr>
               <?php
