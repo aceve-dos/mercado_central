@@ -128,8 +128,8 @@ if ($error) {
                                 <td><?php echo escapar ($fila['precio_min']); ?></td>
                                 <td>
                                     <?php if($_SESSION['nivel']==2){?>
-                                        <a href="<?= 'borrar.php?id=' . escapar ($fila['id_producto']) ?>"> Borrar</a>
-                                        <a href="<?= 'editar.php?id=' . escapar($fila['id_producto']) ?>">Editar</a>      
+                                        <a href="<?= 'borrar.php?id=' . escapar ($fila['id_producto']) ?>" class="btn btn-danger" onclick="return confirm('¿Realmente quiere eliminar?')">Borrar</a>
+                                        <a href="<?= 'editar.php?id=' . escapar($fila['id_producto']) ?>" class="btn btn-success">Editar</a>      
                                 </td>
                             </tr>
                             <?php

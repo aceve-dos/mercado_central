@@ -55,13 +55,13 @@ if ($error) {
   <div class="row">
     <div class="col-md-12">
       <!-- form de busqueda-->
-      <form method="post" class="form-inline">
+      <!-- <form method="post" class="form-inline">
         <div class="form-group mr-3">
           <input style="width:80%;float:left;margin-right:5px;" type="text" id="nombre_cliente" name="nombre cliente" placeholder="Buscar por Nombre" class="form-control">
         </div>
         <input name="csrf" type="hidden" value="<?php echo escapar($_SESSION['csrf']); ?>">
         <button type="submit" name="submit" class="btn btn-primary">Ver usuarios</button>
-      </form>
+      </form> -->
 	    <hr>
       <!-- boton a pantalla de pedidos -->
 	    <a href="inicio_crud.php"  class="btn btn-primary mt-4">Ir a pedidos</a>
@@ -97,7 +97,7 @@ if ($error) {
                 <td><?php echo escapar($fila["nivel"]); ?></td>
                 <td>
                 <!---Editar usuario link aca--->
-                <a href="editar_u.php?id_usuario=<?php echo escapar ($fila["id_usuario"]); ?>">Editar</a>
+                <a href="editar_u.php?id_usuario=<?php echo escapar ($fila["id_usuario"]); ?>" class="btn btn-success">Editar</a>
                 </td>
               </tr>
               <?php

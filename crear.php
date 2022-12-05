@@ -95,7 +95,7 @@ if (isset($resultado)) {
                     name="cantidad" class="form-control" min="0" max="100000" required>
                 </div>
                 <div class="form-group">
-                    <label for="tipo">Tipo de Producto</label>
+                    <label for="tipo">Tipo de Embalaje</label>
                     <input type="text" name="tipo"
                     id="tipo"
                     class="form-control" maxlength="255"required>
