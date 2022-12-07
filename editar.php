@@ -50,7 +50,6 @@ if (isset($_POST['submit']) && !$resultado['error']){
     $conexion = new PDO($dsn, $config ['db']['user'], $config ['db']['pass'], $config['db']['options']);
 
     // capturar valores
-    $nombre_puestero= $_POST['nombre_puestero'];
     $producto_nombre= $_POST['producto_nombre'];
     $sub_producto= $_POST['sub_producto'];
     $cantidad=  $_POST['cantidad'];
@@ -62,7 +61,6 @@ if (isset($_POST['submit']) && !$resultado['error']){
 
     // consulta
     $consultaSQL = "UPDATE productos SET
-    nombre_puestero = :nombre_puestero,
     producto_nombre= :producto_nombre,
     sub_producto = :sub_producto,
     cantidad= :cantidad,
@@ -83,7 +81,6 @@ if (isset($_POST['submit']) && !$resultado['error']){
     $sentencia->bindParam(':peso', $peso, PDO::PARAM_INT);
     $sentencia->bindParam(':precio_max', $precio_max, PDO::PARAM_STR);
     $sentencia->bindParam(':precio_min', $precio_min, PDO::PARAM_STR);
-    $sentencia->bindParam(':nombre_puestero', $nombre_puestero, PDO::PARAM_STR);
 
     $sentencia->execute();
 
@@ -124,7 +121,7 @@ if (isset($productos) && $productos){
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="mt-4">Edicion de productos y pedidos <?= escapar($productos['nombre_puestero']) ?> </h2>
+                <h2 class="mt-4">Edicion de productos y pedidos <?= escapar($productos['id_usuario']) ?> </h2>
                 <hr>
                 <form method="post">
                     <!-- la id del objeto -->
@@ -163,11 +160,6 @@ if (isset($productos) && $productos){
                     <div class="form-group">
                         <label for="nombre">Precio Minimo</label>
                         <input type="text" name="precio_min" id="precio_min" value="<?= escapar($productos['precio_min']) ?>" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nombre">Nombre Puestero</label>
-                        <input type="text" name="nombre_puestero" id="nombre_puestero" value="<?= escapar($productos['nombre_puestero']) ?>" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">

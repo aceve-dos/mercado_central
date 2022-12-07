@@ -25,7 +25,14 @@ try {
     //    }
     //}
 
-    $consultaSQL = "SELECT * FROM productos";
+
+    if($_SESSION['nivel']==1){
+        $consultaSQL = "SELECT * FROM productos WHERE id_usuario=" . $_SESSION['id_usuario'];
+    }else{
+        $consultaSQL = "SELECT * FROM productos";
+    }
+
+    // $consultaSQL = "SELECT * FROM productos";
 
     $sentencia = $conexion->prepare($consultaSQL);
     $sentencia->execute();
@@ -100,7 +107,7 @@ if ($error) {
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Nombre Puestero</th>
+                        <th>ID Usuarios</th>
                         <th>ID Producto</th>
                         <th>Nombre de Producto</th>
                         <th>Sub producto</th>
@@ -117,7 +124,7 @@ if ($error) {
                         foreach ($productos as $fila) {
                             ?>
                             <tr>
-                                <td><?php echo escapar ($fila['nombre_puestero']); ?></td>
+                                <td><?php echo escapar ($fila['id_usuario']); ?></td>
                                 <td><?php echo escapar ($fila['id_producto']); ?></td>
                                 <td><?php echo escapar ($fila['producto_nombre']); ?></td>
                                 <td><?php echo escapar ($fila['sub_producto']); ?></td>

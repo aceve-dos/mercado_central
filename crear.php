@@ -19,7 +19,7 @@ if (isset($_POST['submit'])){
         $conexion = new PDO($dsn, $config ['db']['user'], $config ['db']['pass'], $config['db']['options']);
 
         $producto = [
-            "nombre_puestero" => $_POST ['nombre_puestero'],
+            "id_usuario" => $_SESSION ['id_usuario'],
             "producto_nombre" => $_POST ['nombre'],
             "sub_producto" => $_POST['subprod'],
             "cantidad" => $_POST['cantidad'],
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])){
             "precio_min" => $_POST ['preciomin'] 
         ];
 
-        $consultaSQL = "INSERT INTO productos(nombre_puestero, producto_nombre, sub_producto, cantidad, tipo, peso, precio_max, precio_min)";
+        $consultaSQL = "INSERT INTO productos(id_usuario, producto_nombre, sub_producto, cantidad, tipo, peso, precio_max, precio_min)";
         $consultaSQL .="values(:" .implode(", :", array_keys($producto)) . ")";
 
         $sentencia = $conexion -> prepare($consultaSQL);
@@ -70,10 +70,6 @@ if (isset($resultado)) {
             <h2 class="mt-4">Agregar Producto</h2>
             <hr>
             <form method="post">
-                <div class="form-group">
-                    <label for="nombre_puestero">Nombre de Puestero</label>
-                    <input type="text" name ="nombre_puestero" id="nombre_puestero" class="form-control" maxlength="255" required autofocus>
-                </div>
                 <div class="form-group">
                     <label for="nombre">Nombre producto</label>
                     <input type="text" name="nombre" id="nombre"

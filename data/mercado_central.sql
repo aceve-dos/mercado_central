@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2022 a las 21:55:23
+-- Tiempo de generación: 07-12-2022 a las 04:43:38
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -52,22 +52,24 @@ CREATE TABLE `historial_producto` (
 
 CREATE TABLE `productos` (
   `id_producto` int(10) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `producto_nombre` varchar(20) DEFAULT NULL,
   `sub_producto` varchar(20) DEFAULT NULL,
   `cantidad` int(10) DEFAULT NULL,
   `tipo` varchar(10) DEFAULT NULL,
   `peso` decimal(65,0) DEFAULT NULL,
   `precio_max` float DEFAULT NULL,
-  `precio_min` float DEFAULT NULL,
-  `nombre_puestero` varchar(40) DEFAULT NULL
+  `precio_min` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `producto_nombre`, `sub_producto`, `cantidad`, `tipo`, `peso`, `precio_max`, `precio_min`, `nombre_puestero`) VALUES
-(21, 'Kiki', 'Manzanas', 98, 'perro', '56', 789, 1, 'Sasa');
+INSERT INTO `productos` (`id_producto`, `id_usuario`, `producto_nombre`, `sub_producto`, `cantidad`, `tipo`, `peso`, `precio_max`, `precio_min`) VALUES
+(37, 16, 'Arroz', 'Manzanas', 87, 'Cajones', '555', 7000, 11),
+(38, 17, 'Arroz', 'Manzanas', 87, 'Cajones', '87', 4000, 4),
+(39, 15, 'FF', 'Manzanas', 87, 'Bolsa', '69', 7000, 5);
 
 -- --------------------------------------------------------
 
@@ -118,7 +120,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellido`, `email`, `contraseña`, `nivel`) VALUES
-(4, NULL, NULL, 'admin', 'admin', 2);
+(15, NULL, NULL, 'admin', 'admin', 2),
+(16, NULL, NULL, 'seba', 'aa', 1),
+(17, NULL, NULL, 'carlos', '123', 1);
 
 --
 -- Índices para tablas volcadas
@@ -134,7 +138,8 @@ ALTER TABLE `historial_producto`
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD PRIMARY KEY (`id_producto`);
+  ADD PRIMARY KEY (`id_producto`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `puestero`
@@ -170,7 +175,7 @@ ALTER TABLE `historial_producto`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_producto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `puestero`
@@ -188,7 +193,7 @@ ALTER TABLE `registro`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Restricciones para tablas volcadas
@@ -201,10 +206,15 @@ ALTER TABLE `historial_producto`
   ADD CONSTRAINT `historial_producto_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`);
 
 --
+-- Filtros para la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
+
+--
 -- Filtros para la tabla `registro`
 --
 ALTER TABLE `registro`
-  ADD CONSTRAINT `registro_ibfk_4` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
   ADD CONSTRAINT `registro_ibfk_5` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
   ADD CONSTRAINT `registro_ibfk_6` FOREIGN KEY (`id_puestero`) REFERENCES `puestero` (`id_puestero`);
 COMMIT;
